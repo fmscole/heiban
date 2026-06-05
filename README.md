@@ -43,6 +43,19 @@
 
 > 所有发布版本可在 [GitHub Releases 页面](https://github.com/fmscole/heiban/releases) 查看历史版本。
 
+### 命令行下载（PowerShell）
+
+```powershell
+# Windows 安装版
+curl.exe -LO https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8-installer.exe
+# Windows 便携版
+curl.exe -LO https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8.exe
+# Android APK
+curl.exe -LO https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8.android.apk
+```
+
+> PowerShell 中 `curl` 是 `Invoke-WebRequest` 的别名，为保险起见使用 `curl.exe` 调用原生 curl。
+
 ---
 
 ## 快速开始
