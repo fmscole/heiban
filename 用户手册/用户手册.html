@@ -1,0 +1,3149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>老九黑板 - 用户手册</title>
+<link rel="stylesheet" href="file:///F:/projects/heibantauri/public/katex/katex.min.css">
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 12mm;
+    @bottom-center {
+      content: "— " counter(page) " —";
+      font-size: 9px;
+      color: #999;
+    }
+  }
+  
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #333;
+    max-width: 100%;
+  }
+  
+  h1.chapter-title {
+    font-size: 20px;
+    color: #1a1a2e;
+    border-bottom: 3px solid #e94560;
+    padding-bottom: 6px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    page-break-before: always;
+  }
+  h1.chapter-title:first-of-type {
+    page-break-before: avoid;
+  }
+  
+  h2 {
+    font-size: 15px;
+    color: #16213e;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-left: 4px solid #e94560;
+    padding-left: 8px;
+    page-break-after: avoid;
+  }
+  
+  h3 {
+    font-size: 13px;
+    color: #0f3460;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  code {
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+  }
+  
+  pre {
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  
+  pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 8px 0;
+    font-size: 11px;
+    page-break-inside: avoid;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+    text-align: left;
+  }
+  
+  th {
+    background: #16213e;
+    color: white;
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  blockquote {
+    border-left: 3px solid #e94560;
+    margin: 8px 0;
+    padding: 4px 10px;
+    background: #fff5f5;
+    color: #555;
+    page-break-inside: avoid;
+  }
+  
+  blockquote p {
+    margin: 3px 0;
+  }
+  
+  .two-col {
+    display: flex;
+    gap: 1.5em;
+    page-break-inside: avoid;
+  }
+  .two-col > div {
+    flex: 1;
+    width: 50%;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 12px 0;
+  }
+  
+  ul, ol {
+    padding-left: 20px;
+    margin: 4px 0;
+  }
+  
+  li {
+    margin: 2px 0;
+  }
+  
+  strong {
+    color: #16213e;
+  }
+  
+  section.chapter {
+    page-break-after: always;
+  }
+  section.chapter:last-child {
+    page-break-after: avoid;
+  }
+  
+  /* 目录页 */
+  #toc {
+    page-break-after: always;
+  }
+  #toc h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  #toc ul {
+    list-style: none;
+    padding: 0;
+  }
+  #toc li {
+    padding: 6px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 14px;
+  }
+  
+  /* 封面 */
+  #cover {
+    text-align: center;
+    padding-top: 120px;
+    page-break-after: always;
+  }
+  #cover h1 {
+    font-size: 36px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+  }
+  #cover .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  #cover .version {
+    font-size: 14px;
+    color: #999;
+  }
+</style>
+</head>
+<body>
+
+<div id="cover">
+  <h1>老九黑板</h1>
+  <p class="subtitle">用户手册</p>
+  <p class="version">版本 1.60.0</p>
+  <p style="margin-top: 60px; color: #aaa;">共 25 章</p>
+</div>
+
+<div id="toc">
+  <h1>目录</h1>
+  <ul>
+    <li><strong>第01章</strong> — 功能介绍</li>
+    <li><strong>第02章</strong> — 建立坐标系</li>
+    <li><strong>第03章</strong> — 文件管理</li>
+    <li><strong>第04章</strong> — 批量导入文件</li>
+    <li><strong>第05章</strong> — 绘图工具-上</li>
+    <li><strong>第06章</strong> — 绘图工具-下</li>
+    <li><strong>第07章</strong> — 几何构造-点</li>
+    <li><strong>第08章</strong> — 几何构造-点进阶</li>
+    <li><strong>第09章</strong> — 几何构造-线</li>
+    <li><strong>第10章</strong> — 几何构造-圆</li>
+    <li><strong>第11章</strong> — 圆锥曲线-椭圆</li>
+    <li><strong>第12章</strong> — 圆锥曲线-双曲线抛物线</li>
+    <li><strong>第13章</strong> — 隐函数曲线</li>
+    <li><strong>第14章</strong> — 变换操作</li>
+    <li><strong>第15章</strong> — 变换操作-续</li>
+    <li><strong>第16章</strong> — 标记测量</li>
+    <li><strong>第17章</strong> — 标记测量-续</li>
+    <li><strong>第18章</strong> — 标签注释</li>
+    <li><strong>第19章</strong> — Markdown笔记</li>
+    <li><strong>第20章</strong> — 视图控制</li>
+    <li><strong>第21章</strong> — 视图控制-续</li>
+    <li><strong>第22章</strong> — 页面操作</li>
+    <li><strong>第23章</strong> — 函数绘图</li>
+    <li><strong>第24章</strong> — 函数绘图-续</li>
+    <li><strong>第25章</strong> — 视频处理</li>
+  </ul>
+</div>
+
+<section class="chapter">
+<h1 class="chapter-title">功能介绍</h1>
+<h1>老九黑板 - 功能介绍</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<div class="two-col">
+<div>
+
+<h2>应用概述</h2>
+<p>老九黑板是一款专业的交互式电子白板与数学几何绘图工具，适用于教学演示、数学绘图和文档批注。</p>
+<h2>界面布局</h2>
+<pre><code>┌──────────┬──────────────┬──────────┐
+│ 左侧菜单 │   画布区域   │ 右侧菜单 │
+│  50px宽  │   主工作区   │  可折叠  │
+└──────────┴──────────────┴──────────┘
+</code></pre>
+<ul>
+<li><strong>左侧菜单</strong>（竖排图标）：包含画笔、直线、矩形、选择、擦除等常用工具，以及&quot;更多&quot;子菜单（圆、坐标系、函数、圆锥曲线等）</li>
+<li><strong>右侧菜单</strong>（可折叠）：包含构造、变换、标记、测量等功能，通过右键菜单或右侧面板使用</li>
+<li><strong>画布区域</strong>：主工作区，所有图形在此创建和编辑</li>
+</ul>
+</div>
+<div>
+
+<h2>核心概念：「画」与「构造」</h2>
+<p>理解这两个概念是掌握黑板的关键：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>画</strong>（Draw）</th>
+<th><strong>构造</strong>（Construct）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>起点</strong></td>
+<td>从空白开始</td>
+<td>从已有对象开始</td>
+</tr>
+<tr>
+<td><strong>操作方式</strong></td>
+<td>点击菜单→在画布上鼠标操作逐步成型</td>
+<td>选中已有对象→点击菜单→生成新对象</td>
+</tr>
+<tr>
+<td><strong>例子</strong></td>
+<td>画直线：点击直线图标→点起点→拖到终点</td>
+<td>构造线段：选中两个点→点击&quot;构造线段&quot;</td>
+</tr>
+<tr>
+<td><strong>特点</strong></td>
+<td>直观、适合草图</td>
+<td>精确、保持几何约束关系</td>
+</tr>
+</tbody></table>
+<p><strong>同一个图形通常有多种创建方式</strong>。例如创建圆：</p>
+<ul>
+<li><strong>画圆</strong>：左侧菜单 → 更多 → 画圆 → 点击圆心 → 拖动确定半径</li>
+<li><strong>圆心+点构圆</strong>：先画两个点 → 选中它们 → 右侧菜单 → 构造 → 圆心+点构圆</li>
+<li><strong>三点定圆</strong>：先画三个点 → 选中它们 → 右侧菜单 → 构造 → 三点构圆</li>
+<li><strong>圆锥曲线圆</strong>：左侧菜单 → 更多 → 代数图形 → 圆锥曲线圆 → 输入参数创建</li>
+</ul>
+<p>本手册在每个功能的标题旁标注 <strong>[画]</strong> 或 <strong>[构造]</strong>，帮助你快速识别。</p>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>核心特点</h2>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>动态几何</td>
+<td>&quot;构造&quot;模式创建的图形具有关联性，移动基点时联动更新</td>
+</tr>
+<tr>
+<td>精确数学</td>
+<td>支持圆锥曲线、隐函数、参数方程等高等数学内容</td>
+</tr>
+<tr>
+<td>云端同步</td>
+<td>百度网盘集成，多设备同步文件</td>
+</tr>
+<tr>
+<td>多格式支持</td>
+<td>PDF/图片/Markdown/ban 格式</td>
+</tr>
+</tbody></table>
+<h2>支持文件格式</h2>
+<ul>
+<li><strong>PDF文档</strong> - 导入批注</li>
+<li><strong>.ban</strong> - 黑板专用格式（可编辑）</li>
+<li><strong>图片</strong> - PNG/JPG/GIF/WebP/BMP</li>
+<li><strong>Markdown</strong> - 富文本文档</li>
+</ul>
+</div>
+<div>
+
+<h2>菜单快速索引</h2>
+<table>
+<thead>
+<tr>
+<th>菜单位置</th>
+<th>主要功能</th>
+<th>模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>左侧 画笔图标</td>
+<td>手绘曲线</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 直线图标</td>
+<td>画直线段</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 矩形图标</td>
+<td>画矩形框</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 点图标</td>
+<td>放置自由点</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 更多→画圆</td>
+<td>画圆</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 更多→几何图形</td>
+<td>平行四边形/矩形/菱形/正方形/椭圆</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 更多→代数图形</td>
+<td>圆锥曲线/隐函数/幂函数/切线</td>
+<td>参数</td>
+</tr>
+<tr>
+<td>左侧 更多→坐标系</td>
+<td>建立/管理坐标系</td>
+<td>画</td>
+</tr>
+<tr>
+<td>左侧 更多→构造交点</td>
+<td>批量构造交点</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>左侧 橡皮图标</td>
+<td>擦除模式</td>
+<td>编辑</td>
+</tr>
+<tr>
+<td>右侧菜单 构造</td>
+<td>中点/交点/垂线/平行线/角平分线等</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>右侧菜单 运动</td>
+<td>旋转/对称/缩放/平移</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>右侧菜单 标记</td>
+<td>距离/角度/面积测量</td>
+<td>标记</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+<hr>
+<p><em>版本：1.30.0</em></p>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">建立坐标系</h1>
+<h1>建立坐标系</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<div class="two-col">
+<div>
+
+<h2>为什么需要坐标系</h2>
+<p>坐标系是精确绘图的基准，以下功能依赖坐标系：</p>
+<table>
+<thead>
+<tr>
+<th>功能类型</th>
+<th>具体功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>函数绘图</td>
+<td>任意函数、二次函数、幂函数</td>
+</tr>
+<tr>
+<td>精确绘图</td>
+<td>坐标点、圆锥曲线椭圆/双曲线/抛物线/圆</td>
+</tr>
+<tr>
+<td>隐函数曲线</td>
+<td>f(x,y)=0 形式的任意隐函数</td>
+</tr>
+<tr>
+<td>测量计算</td>
+<td>坐标距离、角度计算、三角形面积</td>
+</tr>
+<tr>
+<td>数值分析</td>
+<td>参数方程、数值积分</td>
+</tr>
+</tbody></table>
+<p><strong>没有坐标系时</strong>，画布使用像素坐标；<strong>建立坐标系后</strong>，使用数学坐标。</p>
+</div>
+<div>
+
+<h2>建立坐标系（&quot;一拖三点击&quot;） [画]</h2>
+<h3>步骤1：拖动画出范围</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 坐标系 → 建立坐标系</strong></li>
+<li>在画布上<strong>拖动鼠标</strong>画出一个矩形区域——这确定了坐标系的 x 轴和 y 轴的可见范围</li>
+</ol>
+<h3>步骤2：点击确定原点</h3>
+<p>点击画布确定坐标原点 O 的位置。</p>
+<h3>步骤3：点击确定X轴单位点</h3>
+<p>在原点右侧（X轴正方向）点击，确定：</p>
+<ul>
+<li>X 轴正方向</li>
+<li>X 轴单位长度（原点到此点的距离 = 1 个单位）</li>
+</ul>
+<h3>步骤4：点击确定Y轴单位点</h3>
+<p>在原点上方（Y轴正方向）点击，确定：</p>
+<ul>
+<li>Y 轴正方向</li>
+<li>Y 轴单位长度</li>
+</ul>
+<h3>完成后</h3>
+<p>坐标轴显示在画布上，包含：</p>
+<ul>
+<li>X 轴（红色箭头，向右为正）</li>
+<li>Y 轴（蓝色/绿色箭头，向上为正）</li>
+<li>原点 O</li>
+<li>单位刻度标记</li>
+</ul>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>调整坐标系</h2>
+<h3>显示/隐藏控制点</h3>
+<ul>
+<li><strong>显示</strong>：左侧菜单 <strong>更多 → 坐标系 → 显示坐标控制点</strong> —— 显示所有调节手柄</li>
+<li><strong>隐藏</strong>：左侧菜单 <strong>更多 → 坐标系 → 隐藏坐标控制点</strong> —— 隐藏手柄防止误操作</li>
+</ul>
+<h3>拖动单位点改变比例</h3>
+<ol>
+<li>显示控制点后，可看到 X 轴和 Y 轴上的单位点</li>
+<li>拖动单位点改变单位长度</li>
+<li>基于该坐标系的所有图形同步缩放</li>
+</ol>
+<h3>移动坐标系</h3>
+<ul>
+<li>在原点附近点击选中整个坐标系</li>
+<li>拖动原点可整体移动坐标系</li>
+<li>所有基于坐标的图形跟随移动</li>
+</ul>
+<h3>修改坐标范围</h3>
+<ul>
+<li>拖动 X 轴或 Y 轴的端点可以改变轴的显示范围</li>
+</ul>
+</div>
+<div>
+
+<h2>多坐标系管理</h2>
+<h3>每个页面支持多个坐标系</h3>
+<ul>
+<li>同一页面可建立多个独立坐标系</li>
+<li>每个坐标系有自己的原点和单位长度</li>
+<li>不同坐标系的图形互不干扰</li>
+</ul>
+<h3>切换活动坐标系</h3>
+<p>点击对应坐标系的原点（或轴上任意位置），该坐标系变为当前活动坐标系。后续创建的坐标相关图形都基于此坐标系。</p>
+<h3>删除坐标系</h3>
+<ol>
+<li>选中坐标系（点击原点）</li>
+<li>按 Delete 键</li>
+<li>基于该坐标系的所有图形也一并删除</li>
+</ol>
+<blockquote>
+<p>⚠️ 删除坐标系会同时删除所有依赖它的图形（函数曲线、坐标点等）。</p>
+</blockquote>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">文件管理</h1>
+<h1>文件管理</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>新建黑板</h2>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 黑板</strong></li>
+<li>新建一个空白黑板文件</li>
+<li>默认名称&quot;heiban&quot;，包含一个空白页</li>
+</ol>
+<h2>打开本地文件</h2>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 打开本地文件</strong></li>
+<li>在系统文件对话框中选择文件</li>
+<li>支持格式：<code>.ban</code>（黑板专用）、<code>.pdf</code>、图片文件</li>
+</ol>
+<h2>打开百度网盘文件</h2>
+<h3>前置条件</h3>
+<ul>
+<li>需要先登录百度网盘账号</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 打开百度网盘文件</strong></li>
+<li>在弹出的网盘文件浏览器中选择文件</li>
+<li>点击打开</li>
+</ol>
+</div>
+<div>
+
+<h2>保存文件</h2>
+<h3>保存为 ban 文件</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 保存ban文件</strong></li>
+<li>如果是新文件，弹出保存对话框</li>
+<li>如果是已打开的文件，直接覆盖保存</li>
+<li><code>.ban</code> 格式保留所有可编辑信息（点、线、构造关系等）</li>
+</ol>
+<h3>另存为 ban 文件</h3>
+<ol>
+<li>点击 <strong>文件夹图标 → 另存为ban文件</strong></li>
+<li>选择保存位置和文件名</li>
+<li>原文件不受影响</li>
+</ol>
+<h3>保存为 PDF</h3>
+<ol>
+<li>点击 <strong>文件夹图标 → 保存为PDF</strong></li>
+<li>所有页面导出为一个 PDF 文件</li>
+<li>每页画布对应一页 PDF</li>
+</ol>
+<h3>当前页保存为图片</h3>
+<ol>
+<li>点击 <strong>文件夹图标 → 当前页保存为图片</strong></li>
+<li>当前页导出为 PNG 图片</li>
+<li>可用于分享或插入其他文档</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">批量导入文件</h1>
+<h1>批量导入文件</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>批量导入PDF页面</h2>
+<h3>作用</h3>
+<p>将多页 PDF 文件的每一页分别导入到黑板的连续页面中。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 打开本地文件</strong></li>
+<li>选择一个 PDF 文件</li>
+<li>PDF 的每一页按顺序导入：<ul>
+<li>第1页 PDF → 黑板第1页</li>
+<li>第2页 PDF → 黑板第2页</li>
+<li>...以此类推</li>
+</ul>
+</li>
+</ol>
+<h3>导入后的操作</h3>
+<ul>
+<li>每页 PDF 作为背景图片显示</li>
+<li>可以在 PDF 上方自由绘制批注</li>
+<li>切换页面时，批注跟随各自页面</li>
+<li>保存为 .ban 文件时，PDF 背景和批注一起保存</li>
+</ul>
+<h2>批量导入图片</h2>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>文件夹图标 → 打开本地文件</strong></li>
+<li>选择多个图片文件（Ctrl+点击多选）</li>
+<li>每个图片导入到独立的一页</li>
+</ol>
+</div>
+<div>
+
+<h2>导入注意事项</h2>
+<h3>PDF 导入</h3>
+<ul>
+<li>大尺寸 PDF 导入可能需要较长时间</li>
+<li>PDF 分辨率由黑板页面大小决定</li>
+<li>导入后可切换&quot;原图/二极化&quot;模式</li>
+</ul>
+<h3>文件关联</h3>
+<ul>
+<li>导入的 PDF/图片作为背景层，不可移动或删除（需通过删除页面来移除）</li>
+<li>绘图内容在前景层，可自由编辑</li>
+</ul>
+<h3>支持的格式</h3>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>导入方式</th>
+<th>每页对应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.ban</td>
+<td>直接打开编辑</td>
+<td>保留多页结构</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td>导入为背景</td>
+<td>每页PDF → 每页黑板</td>
+</tr>
+<tr>
+<td>PNG/JPG</td>
+<td>导入为背景</td>
+<td>每个图片 → 每页黑板</td>
+</tr>
+<tr>
+<td>WebP/BMP/GIF</td>
+<td>导入为背景</td>
+<td>每个图片 → 每页黑板</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">绘图工具-上</h1>
+<h1>绘图工具（上）——「画」模式</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍左侧菜单中的「画」模式工具。这些工具的共性是：<strong>从空白画布开始，通过鼠标点击、拖动逐步成型</strong>，不依赖已有对象。</p>
+<blockquote>
+<p><strong>与「构造」的区别</strong>：如果想基于已有点/线创建新图形（如过两点构造线段、过三点构造圆），请参阅第07-10章&quot;几何构造&quot;。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>画笔工具 [画]</h2>
+<h3>作用</h3>
+<p>自由手绘曲线，用于手写文字、涂鸦标记、随意绘图。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>铅笔图标</strong>（或展开后选择具体笔型）</li>
+<li>在画布上按住鼠标左键拖动绘制</li>
+<li>松开鼠标完成一笔</li>
+</ol>
+<h3>笔型选择</h3>
+<p>点击铅笔图标展开子菜单，可选：</p>
+<ul>
+<li><strong>树枝笔</strong>：模拟树枝/粉笔质感</li>
+<li><strong>圆珠笔</strong>：标准圆头笔迹</li>
+<li><strong>水笔</strong>：流畅线条</li>
+<li><strong>空心笔</strong>：空心轮廓线</li>
+<li><strong>画笔</strong>：艺术画笔效果</li>
+<li><strong>马克笔</strong>：半透明宽笔触（自动切换为马克笔颜色）</li>
+</ul>
+<h3>调整笔迹</h3>
+<ul>
+<li>在 <strong>线条样式</strong> 菜单中调整笔画粗细（1-20号）</li>
+<li>通过颜色选择器改变画笔颜色</li>
+</ul>
+</div>
+<div>
+
+<h2>直线工具 [画]</h2>
+<h3>作用</h3>
+<p>绘制精确的直线段。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>直线图标</strong></li>
+<li>在画布上点击确定起点</li>
+<li>拖动鼠标到终点位置</li>
+<li>再次点击（或释放鼠标）确定终点</li>
+</ol>
+<h3>自动吸附</h3>
+<p>绘制时起点和终点会自动吸附到附近的：</p>
+<ul>
+<li>已有点（8px范围内）</li>
+<li>已有线上的最近点</li>
+<li>已有圆/椭圆/曲线上的最近点</li>
+</ul>
+<h3>变为向量</h3>
+<p>选中直线后，点击 <strong>更多 → 变为向量</strong>，直线两端会加上箭头。</p>
+<blockquote>
+<p><strong>构造线段</strong>：如果先有两个点，想精确连接它们，应使用「构造线段」（见第09章），这样线段会跟随点移动。</p>
+</blockquote>
+<h2>矩形工具 [画]</h2>
+<h3>作用</h3>
+<p>绘制矩形框，用于框选区域、创建边框。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>矩形图标</strong></li>
+<li>在画布上点击确定矩形的一个角</li>
+<li>拖动鼠标到对角位置</li>
+<li>再次点击确定矩形</li>
+</ol>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>点工具 [画]</h2>
+<h3>作用</h3>
+<p>在画布上放置自由点，是构造其他图形的基础。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>点图标</strong></li>
+<li>在画布上点击放置点</li>
+<li>每点一次放置一个点</li>
+<li>切换到选择模式后可拖动点</li>
+</ol>
+<h3>自动吸附</h3>
+<p>放置点时自动吸附到：</p>
+<ul>
+<li>已有线上的最近点 → 创建&quot;线上点&quot;（可沿该线滑动）</li>
+<li>已有圆上的最近点 → 创建&quot;圆上点&quot;（可沿圆周滑动）</li>
+<li>已有曲线上的最近点 → 创建&quot;曲线上点&quot;</li>
+<li>无吸附对象时 → 创建&quot;自由点&quot;</li>
+</ul>
+<blockquote>
+<p>吸附创建的点具有<strong>约束关系</strong>，拖动时始终保持在吸附对象上。这是「构造」概念的体现。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>虚线工具 [画]</h2>
+<h3>作用</h3>
+<p>绘制虚线，常用于辅助线、隐藏边、对称轴。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 画虚线</strong></li>
+<li>点击确定虚线起点</li>
+<li>拖动到终点位置释放</li>
+</ol>
+<h2>画圆 [画]</h2>
+<h3>作用</h3>
+<p>通过圆心+半径的方式画圆。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 画圆</strong></li>
+<li>在画布上点击确定圆心位置</li>
+<li>拖动鼠标确定半径大小</li>
+<li>再次点击完成</li>
+</ol>
+<blockquote>
+<p><strong>圆的多种创建方式</strong>：除了&quot;画圆&quot;，还可以通过「圆心+点构圆」「三点定圆」「圆锥曲线圆」等方式创建（见第10章）。不同方式的区别在于是否保持几何约束。</p>
+</blockquote>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">绘图工具-下</h1>
+<h1>绘图工具（下）—— 编辑与擦除</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍编辑和擦除类工具。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>选择工具</h2>
+<h3>作用</h3>
+<p>选择画布上的对象，是进行移动、删除、变换等操作的前提。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>光标图标</strong> 进入选择模式</li>
+<li><strong>单选</strong>：点击画布上的任意图形（点/线/圆/曲线）</li>
+<li><strong>多选</strong>：按住 Shift 依次点击多个对象</li>
+<li><strong>框选</strong>：在空白处按住鼠标拖动，框内所有对象被选中</li>
+<li>选中的对象高亮显示（红色边框）</li>
+<li>在空白处点击取消所有选中</li>
+</ol>
+<h3>选中后可执行的操作</h3>
+<ul>
+<li><strong>拖动</strong>：切换到移动模式（箭头图标），拖动选中对象</li>
+<li><strong>删除</strong>：按 Delete 键或 Backspace 键</li>
+<li><strong>变换</strong>：使用右侧菜单的&quot;运动&quot;功能（旋转/对称/缩放/平移）</li>
+<li><strong>构造</strong>：使用右侧菜单的&quot;构造&quot;功能（中点/交点等）</li>
+<li><strong>隐藏</strong>：右键 → 隐藏选中对象</li>
+<li><strong>置顶/置底</strong>：右键调整图层顺序</li>
+</ul>
+</div>
+<div>
+
+<h2>移动工具</h2>
+<h3>作用</h3>
+<p>拖动画布或移动图形。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>移动图标</strong>（十字箭头）</li>
+<li>在画布上按住拖动：<ul>
+<li>拖动空白区域 → 平移整个画布视图</li>
+<li>拖动选中的图形 → 移动图形位置</li>
+</ul>
+</li>
+<li>也可使用鼠标中键/右键拖动来平移视图</li>
+</ol>
+<h2>线条样式</h2>
+<h3>作用</h3>
+<p>调整新绘制图形的线条粗细。不影响已选中图形的粗细。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>线条样式图标</strong></li>
+<li>选择粗细等级：1号（最细）到 20号（最粗）</li>
+<li>后续新绘制的图形使用此粗细</li>
+</ol>
+<h3>修改已有图形的粗细</h3>
+<ol>
+<li>选中要修改的图形</li>
+<li>在线条样式菜单中选择新粗细</li>
+<li>选中图形立即更新</li>
+</ol>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>擦除工具</h2>
+<h3>橡皮擦除 [编辑]</h3>
+<p>擦除已绘制的手写笔迹和曲线。</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li>点击左侧菜单 <strong>橡皮图标</strong>（或展开选择擦除模式）</li>
+<li>按住鼠标在要擦除的区域拖动</li>
+<li>经过的笔迹被擦除（粗线覆盖式擦除）</li>
+</ol>
+<h3>选择擦除 [编辑]</h3>
+<p>点击单个对象来擦除它。</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li>展开橡皮图标子菜单 → <strong>选择擦除</strong></li>
+<li>点击画布上的图形</li>
+<li>被点击的图形立即删除</li>
+</ol>
+<h3>矩形擦除 [编辑]</h3>
+<p>框选一个矩形区域，擦除区域内所有图形。</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li>展开橡皮图标子菜单 → <strong>矩形擦除</strong></li>
+<li>在画布上拖动创建矩形区域</li>
+<li>释放鼠标，区域内所有图形被删除</li>
+</ol>
+</div>
+<div>
+
+<h2>矩形覆盖 [编辑]</h2>
+<h3>作用</h3>
+<p>用填充矩形覆盖画布区域，用于遮盖或高亮。</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li>展开橡皮图标子菜单 → <strong>矩形覆盖</strong></li>
+<li>在画布上拖动创建填充矩形</li>
+<li>矩形使用当前背景色填充，遮盖下方内容</li>
+<li>可用于制作&quot;逐步揭示&quot;的教学效果</li>
+</ol>
+<h2>擦除覆盖与橡皮 [编辑]</h2>
+<h3>作用</h3>
+<p>一次性清除所有矩形覆盖和橡皮擦除产生的粗线。</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li>展开橡皮图标子菜单 → <strong>擦除覆盖与橡皮</strong></li>
+<li>画布上所有覆盖矩形和橡皮擦除痕迹被清除</li>
+<li>被擦除的原始笔迹不会恢复</li>
+</ol>
+<blockquote>
+<p><strong>撤销恢复</strong>：如果误擦了内容，可以使用右侧菜单中的&quot;撤销&quot;按钮（或 Ctrl+Z）恢复。</p>
+</blockquote>
+<hr>
+<h2>几何图形工具 [画]</h2>
+<p>左侧菜单 <strong>更多 → 几何图形</strong> 子菜单提供了逐步绘制的几何图形：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>操作方式</th>
+<th>章节</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>画平行四边形</td>
+<td>点三个点（P1→P2→P3），自动补全P4</td>
+<td>本章</td>
+</tr>
+<tr>
+<td>画矩形（几何）</td>
+<td>点两点确定底边，点第三点确定高度</td>
+<td>本章</td>
+</tr>
+<tr>
+<td>画菱形</td>
+<td>点两点确定边长，点第三点确定方向</td>
+<td>本章</td>
+</tr>
+<tr>
+<td>画正方形</td>
+<td>点两点确定边长，选择候选P3方向</td>
+<td>本章</td>
+</tr>
+<tr>
+<td>画椭圆</td>
+<td>点两点确定长轴两端，拖动确定短轴</td>
+<td>本章</td>
+</tr>
+<tr>
+<td>画四点构弧</td>
+<td>点四个点构造圆弧</td>
+<td>本章</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>构造正n边形</strong>（构造模式）：需先选中两个点（作为边长基准），然后选择此菜单。与上述&quot;画&quot;模式不同。</p>
+</blockquote>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">几何构造-点</h1>
+<h1>几何构造——点</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍基于已有点/线/圆<strong>构造</strong>新点的操作。构造出的点具有<strong>动态关联性</strong>：当原始对象移动时，构造点自动更新位置。</p>
+<blockquote>
+<p><strong>前提</strong>：所有构造操作都需要先有可依赖的已有对象（点、线、圆等）。如果没有，请先用第05章的&quot;点工具&quot;或&quot;直线工具&quot;画出基础对象。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>构造交点 [构造]</h2>
+<h3>作用</h3>
+<p>自动计算并创建两个几何对象的交点。是最常用的构造操作之一。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>确保画布上有两条相交的线（或线与圆、圆与圆等）</li>
+<li>点击左侧菜单 <strong>更多 → 构造交点</strong></li>
+<li>系统自动扫描所有选中或可见对象，创建所有可能的交点：<ul>
+<li>直线与直线交点</li>
+<li>直线与圆交点（2个）</li>
+<li>圆与圆交点（2个）</li>
+<li>直线与椭圆/双曲线/抛物线交点</li>
+<li>圆与椭圆/双曲线/抛物线交点</li>
+</ul>
+</li>
+<li>交点被创建后，拖动原始对象时交点联动更新</li>
+</ol>
+<blockquote>
+<p><strong>批量操作</strong>：此功能会一次性创建所有可计算交点。如果只想创建特定两条线的交点，可用下面的&quot;手动选择交点&quot;方式。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>直线交点（手动选择）[构造]</h2>
+<h3>作用</h3>
+<p>手动指定两条直线，创建它们的交点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中第一条直线（点击它）</li>
+<li>按住 Shift，选中第二条直线</li>
+<li>在右侧菜单点击 <strong>构造 → 直线交点</strong></li>
+<li>交点创建在两线相交处</li>
+</ol>
+<blockquote>
+<p>如果两线平行（无交点），不会创建任何点。</p>
+</blockquote>
+<h2>直线与圆交点 [构造]</h2>
+<h3>作用</h3>
+<p>求直线与圆的交点，可能产生 0 个、1 个（相切）或 2 个交点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一条直线</li>
+<li>按住 Shift，选中一个圆</li>
+<li>在右侧菜单点击 <strong>构造 → 直线与圆交点</strong></li>
+<li>系统自动创建所有交点（最多2个）</li>
+</ol>
+<h2>两圆交点 [构造]</h2>
+<h3>作用</h3>
+<p>求两个圆的交点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中第一个圆</li>
+<li>按住 Shift，选中第二个圆</li>
+<li>在右侧菜单点击 <strong>构造 → 两圆交点</strong></li>
+<li>交点自动创建（0-2个）</li>
+</ol>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>中点 [构造]</h2>
+<h3>作用</h3>
+<p>创建线段的中点，始终位于两端点正中间。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个点（点击第一个，按住 Shift 点击第二个）</li>
+<li>在右侧菜单点击 <strong>构造 → 中点</strong></li>
+<li>中点创建，拖动任意端点时中点保持居中</li>
+</ol>
+<blockquote>
+<p>也可以选中一条线段（直线/射线/构造线段），直接构造其中点。</p>
+</blockquote>
+<h2>坐标点 [构造]</h2>
+<h3>作用</h3>
+<p>通过精确的数学坐标值创建点。</p>
+<h3>前置条件</h3>
+<ul>
+<li>必须先建立坐标系（见第02章）</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>确保已有坐标系</li>
+<li>在右侧菜单点击 <strong>构造 → 坐标点</strong></li>
+<li>在对话框中输入：<ul>
+<li><strong>x坐标</strong>：支持数学表达式（如 <code>2*pi</code>、<code>sqrt(2)</code>、<code>a+b</code>）</li>
+<li><strong>y坐标</strong>：同上</li>
+</ul>
+</li>
+<li>点击确定，点创建在指定坐标位置</li>
+</ol>
+<p><strong>示例</strong>：</p>
+<ul>
+<li><code>(3, 4)</code> → 输入 x=3, y=4</li>
+<li><code>(sin(30°), cos(30°))</code> → 输入 x=sin(pi/6), y=cos(pi/6)</li>
+</ul>
+</div>
+<div>
+
+<h2>线上点 [构造]</h2>
+<h3>作用</h3>
+<p>在已有直线上创建一个可沿该线滑动的约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>点图标</strong> 进入点模式</li>
+<li>将鼠标移到某条直线上（自动吸附高亮）</li>
+<li>点击放置点 → 创建&quot;线上点&quot;</li>
+<li>切换到选择模式后，可沿该线拖动此点</li>
+</ol>
+<blockquote>
+<p><strong>已有线上创建</strong>：也可以选中一条线，在右侧菜单点击 <strong>构造 → 线上点</strong>，然后在线上点击确定位置。</p>
+</blockquote>
+<h2>圆上点 [构造]</h2>
+<h3>作用</h3>
+<p>在已有圆周上创建一个可沿圆周滑动的约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>点图标</strong> 进入点模式</li>
+<li>将鼠标移到某个圆上（自动吸附高亮）</li>
+<li>点击放置点 → 创建&quot;圆上点&quot;</li>
+<li>拖动此点时，始终保持在圆周上</li>
+</ol>
+<h2>曲线上点 [构造]</h2>
+<h3>作用</h3>
+<p>在函数曲线或圆锥曲线上创建约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击 <strong>点图标</strong></li>
+<li>将鼠标移到曲线上（自动吸附）</li>
+<li>点击创建约束点</li>
+<li>点可沿曲线滑动</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">几何构造-点进阶</h1>
+<h1>几何构造 - 点进阶</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<div class="two-col">
+<div>
+
+<h2>中点</h2>
+<h3>作用效果</h3>
+<p>创建线段的中点，始终位于两端点正中间。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击右侧菜单 <strong>构造</strong> → <strong>中点</strong></li>
+<li>点击线段的第一个端点</li>
+<li>点击线段的第二个端点</li>
+<li>中点自动创建，随端点移动保持中点位置</li>
+</ol>
+<h2>坐标点</h2>
+<h3>作用效果</h3>
+<p>通过精确的坐标值创建点，需要先有坐标系。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击 <strong>构造</strong> → <strong>坐标点</strong></li>
+<li>在对话框输入x坐标值（支持表达式）</li>
+<li>输入y坐标值（支持表达式）</li>
+<li>点击确定创建点</li>
+</ol>
+<p><strong>示例</strong>：输入 <code>2*a</code>、<code>sin(30)</code> 等表达式</p>
+</div>
+<div>
+
+<h2>线上点</h2>
+<h3>作用效果</h3>
+<p>在直线上创建可沿直线滑动的点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>先创建一条直线</li>
+<li>右键点击直线选择 <strong>线上点</strong></li>
+<li>或直接点击直线上某位置</li>
+<li>点可在直线上自由拖动</li>
+</ol>
+<h2>圆上点</h2>
+<h3>作用效果</h3>
+<p>在圆周上创建可沿圆周滑动的点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>先创建一个圆</li>
+<li>右键点击圆选择 <strong>圆上点</strong></li>
+<li>或点击圆周上某位置</li>
+<li>点可沿圆周拖动，保持与圆心的距离</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">几何构造-线</h1>
+<h1>几何构造——线</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍基于已有点/线<strong>构造</strong>新线的操作。所有构造出的线具有动态关联性。</p>
+<blockquote>
+<p><strong>「画」vs「构造」</strong>：左侧菜单的&quot;直线工具&quot;是画线段（自由放置）；本章的&quot;构造线段/射线/直线&quot;基于已有点创建，会随点移动。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>构造线段 [构造]</h2>
+<h3>作用</h3>
+<p>连接两个已有点创建线段。拖动端点时线段跟随变化。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>确保画布上有两个点</li>
+<li>选中这两个点（点击第一个，Shift+点击第二个）</li>
+<li>在右侧菜单点击 <strong>构造 → 构造线段</strong></li>
+<li>线段自动连接两点</li>
+</ol>
+<blockquote>
+<p><strong>与「画直线」的区别</strong>：</p>
+<ul>
+<li>画直线：从空白开始，自由放置起点和终点</li>
+<li>构造线段：基于已有点，保持关联约束</li>
+</ul>
+</blockquote>
+<h2>构造射线 [构造]</h2>
+<h3>作用</h3>
+<p>从一个点出发，经过另一点，向一个方向无限延伸的射线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中起点</li>
+<li>按住 Shift，选中方向点</li>
+<li>在右侧菜单点击 <strong>构造 → 构造射线</strong></li>
+<li>射线从起点向方向点延伸</li>
+</ol>
+<h2>构造直线 [构造]</h2>
+<h3>作用</h3>
+<p>通过两点创建向两端无限延伸的直线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个点</li>
+<li>在右侧菜单点击 <strong>构造 → 构造直线</strong></li>
+<li>直线通过两点，两端无限延伸</li>
+</ol>
+<blockquote>
+<p>构造直线与左侧菜单的&quot;直线工具&quot;（画线段）不同。构造直线会显示为穿过两点的无限直线。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>平行线 [构造]</h2>
+<h3>作用</h3>
+<p>过一点作某直线的平行线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一条参考直线（作为平行基准）</li>
+<li>按住 Shift，选中要通过的点</li>
+<li>在右侧菜单点击 <strong>构造 → 平行线</strong></li>
+<li>过该点且与参考线平行的直线被创建</li>
+</ol>
+<h2>垂线 [构造]</h2>
+<h3>作用</h3>
+<p>过一点作某直线的垂线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一条参考直线</li>
+<li>按住 Shift，选中垂足位置的点（或要通过的点）</li>
+<li>在右侧菜单点击 <strong>构造 → 垂线</strong></li>
+<li>垂线自动创建（过该点且垂直于参考线）</li>
+</ol>
+<h2>角平分线 [构造]</h2>
+<h3>作用</h3>
+<p>作一个角的平分线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中三个点（按顺序：角的一边上一点 → 顶点 → 另一边上的点）</li>
+<li>在右侧菜单点击 <strong>构造 → 角平分线</strong></li>
+<li>角平分线从顶点出发，平分该角</li>
+</ol>
+<p><strong>示例</strong>：有 A、O、B 三点，要作∠AOB的平分线：</p>
+<ul>
+<li>选中 A → Shift+选中 O → Shift+选中 B</li>
+<li>点击 <strong>构造 → 角平分线</strong></li>
+</ul>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">几何构造-圆</h1>
+<h1>几何构造——圆</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍圆的多种创建方式。同一个圆可以通过「画」或「构造」不同的方式得到，选择哪种取决于你的需求。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>圆的四种创建方式</h2>
+<p>创建圆有四种基本方式，各有不同的适用场景：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>菜单位置</th>
+<th>模式</th>
+<th>约束关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>画圆</td>
+<td>左侧菜单 更多→画圆</td>
+<td>画</td>
+<td>无约束，自由放置</td>
+</tr>
+<tr>
+<td>圆心+点构圆</td>
+<td>右侧菜单 构造</td>
+<td>构造</td>
+<td>圆心和半径跟随两点变化</td>
+</tr>
+<tr>
+<td>三点定圆</td>
+<td>右侧菜单 构造</td>
+<td>构造</td>
+<td>圆始终经过三点</td>
+</tr>
+<tr>
+<td>圆锥曲线圆</td>
+<td>左侧菜单 更多→代数图形</td>
+<td>参数</td>
+<td>通过参数方程精确定义</td>
+</tr>
+</tbody></table>
+<h2>画圆 [画]</h2>
+<h3>作用</h3>
+<p>用圆心+半径的方式画圆。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 画圆</strong></li>
+<li>在画布上点击确定圆心</li>
+<li>拖动鼠标确定半径大小</li>
+<li>再次点击完成</li>
+</ol>
+<blockquote>
+<p>画出的圆是自由图形，不与任何点关联。适合快速绘制。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>圆心+点构圆 [构造]</h2>
+<h3>作用</h3>
+<p>以第一个点为圆心，经过第二个点的圆。两点移动时圆跟随变化。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>画两个点（用点工具）</li>
+<li>选中第一个点（圆心）</li>
+<li>按住 Shift，选中第二个点（圆周上的点）</li>
+<li>在右侧菜单点击 <strong>构造 → 圆心+点构圆</strong></li>
+<li>圆创建，圆心在第一个点，圆周经过第二个点</li>
+</ol>
+<blockquote>
+<p>拖动两个点中的任意一个，圆都会实时更新。</p>
+</blockquote>
+<h2>三点定圆 [构造]</h2>
+<h3>作用</h3>
+<p>通过不在同一直线上的三点确定唯一圆。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>画三个不共线的点</li>
+<li>依次选中三个点（Shift+点击）</li>
+<li>在右侧菜单点击 <strong>构造 → 三点构圆</strong></li>
+<li>经过三点的圆自动创建</li>
+</ol>
+<h2>圆心+距离构圆 [构造]</h2>
+<h3>作用</h3>
+<p>以指定点为圆心，用数值或表达式指定半径的圆。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中圆心点</li>
+<li>在右侧菜单点击 <strong>构造 → 圆心+距离构圆</strong></li>
+<li>输入半径值（支持表达式）</li>
+<li>圆按指定半径创建</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">圆锥曲线-椭圆</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>椭圆有两种创建方式：<strong>画椭圆</strong>（几何方式，鼠标放置控制点）和<strong>圆锥曲线椭圆</strong>（代数方式，输入参数方程）。两种方式产生的椭圆性质不同。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>画椭圆 [画]</h2>
+<h3>作用</h3>
+<p>通过鼠标放置控制点来画椭圆。适合快速、直观的绘制。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 几何图形 → 画椭圆</strong></li>
+<li>在画布上点击第一个点（椭圆中心或长轴一端）</li>
+<li>点击第二个点（确定长轴方向和长度）</li>
+<li>拖动鼠标调整短轴长度</li>
+<li>点击确认，椭圆完成</li>
+</ol>
+<blockquote>
+<p>画出的椭圆是自由图形，不与坐标系关联。</p>
+</blockquote>
+<h2>圆锥曲线椭圆 [参数]</h2>
+<h3>作用</h3>
+<p>通过精确的数学参数创建标准椭圆，需要坐标系。</p>
+<h3>前置条件</h3>
+<ul>
+<li>必须先建立坐标系（见第02章）</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 圆锥曲线椭圆</strong></li>
+<li>在弹出的参数面板中设置：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>半长轴长度</td>
+<td>4</td>
+</tr>
+<tr>
+<td>b</td>
+<td>半短轴长度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>中心点 x</td>
+<td>椭圆中心x坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>中心点 y</td>
+<td>椭圆中心y坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>旋转角</td>
+<td>椭圆倾斜角度（度）</td>
+<td>30</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>点击 <strong>创建</strong> 按钮</li>
+<li>椭圆按参数生成，从属于当前坐标系</li>
+</ol>
+<h3>参数化椭圆的优势</h3>
+<ul>
+<li>精确的数学定义</li>
+<li>可设置旋转角度</li>
+<li>可拖动中心点改变位置</li>
+<li>坐标变化时椭圆跟随缩放</li>
+</ul>
+</div>
+<div>
+
+<h2>椭圆上的点 [构造]</h2>
+<h3>作用</h3>
+<p>在椭圆周上创建可滑动的约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>先创建一个椭圆（画椭圆或圆锥曲线椭圆均可）</li>
+<li>点击左侧菜单 <strong>点图标</strong></li>
+<li>将鼠标移到椭圆周上（自动吸附高亮）</li>
+<li>点击放置点 → 创建&quot;椭圆上的点&quot;</li>
+<li>拖动此点时，始终保持在椭圆周上</li>
+</ol>
+<h2>直线与椭圆交点 [构造]</h2>
+<h3>作用</h3>
+<p>求直线与椭圆的交点（0-2个）。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一条直线</li>
+<li>按住 Shift，选中一个椭圆</li>
+<li>在右侧菜单点击 <strong>构造 → 直线与椭圆交点</strong></li>
+<li>系统自动计算并创建交点</li>
+</ol>
+<blockquote>
+<p>也可使用左侧菜单 <strong>更多 → 构造交点</strong> 批量创建所有交点。</p>
+</blockquote>
+<h2>椭圆与其他圆锥曲线的交点 [构造]</h2>
+<p>支持以下圆锥曲线间的交点：</p>
+<ul>
+<li>圆与椭圆交点</li>
+<li>椭圆与双曲线交点</li>
+<li>椭圆与抛物线交点</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个圆锥曲线图形（Shift+点击）</li>
+<li>点击左侧菜单 <strong>更多 → 构造交点</strong></li>
+<li>交点自动计算并创建</li>
+</ol>
+<h2>椭圆参数方程</h2>
+<p>创建的圆锥曲线椭圆使用标准参数方程：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></p>
+<p>如需更复杂的椭圆（如倾斜椭圆），可在参数面板中设置旋转角。</p>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">圆锥曲线-双曲线抛物线</h1>
+<h1>圆锥曲线——双曲线与抛物线</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍双曲线和抛物线的参数化创建方式。与椭圆类似，圆锥曲线双曲线/抛物线通过参数面板精确创建，属于 <strong>[参数]</strong> 模式，需要坐标系。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>圆锥曲线双曲线 [参数]</h2>
+<h3>作用</h3>
+<p>创建标准双曲线，可显示渐近线。</p>
+<h3>前置条件</h3>
+<ul>
+<li>必须先建立坐标系（见第02章）</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 圆锥曲线双曲线</strong></li>
+<li>在参数面板设置：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>实半轴长度</td>
+<td>3</td>
+</tr>
+<tr>
+<td>b</td>
+<td>虚半轴长度</td>
+<td>2</td>
+</tr>
+<tr>
+<td>中心点 x</td>
+<td>双曲线中心x坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>中心点 y</td>
+<td>双曲线中心y坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>开口方向</td>
+<td>横向(x轴) 或 纵向(y轴)</td>
+<td>横向</td>
+</tr>
+<tr>
+<td>显示渐近线</td>
+<td>是否显示两条渐近线</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>点击 <strong>创建</strong> 按钮</li>
+</ol>
+<h3>双曲线方程</h3>
+<ul>
+<li>横向开口：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></li>
+<li>纵向开口：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.1771em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></li>
+</ul>
+<h3>渐近线</h3>
+<p>勾选&quot;显示渐近线&quot;后，两条渐近线自动绘制：</p>
+<ul>
+<li><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord">±</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">a</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">x</span></span></span></span></span>（横向开口）</li>
+</ul>
+</div>
+<div>
+
+<h2>圆锥曲线抛物线 [参数]</h2>
+<h3>作用</h3>
+<p>创建标准抛物线，支持四种开口方向。</p>
+<h3>前置条件</h3>
+<ul>
+<li>必须先建立坐标系</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 圆锥曲线抛物线</strong></li>
+<li>在参数面板设置：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p</td>
+<td>焦距（焦点到准线的距离）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>顶点 x</td>
+<td>抛物线顶点x坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>顶点 y</td>
+<td>抛物线顶点y坐标</td>
+<td>0</td>
+</tr>
+<tr>
+<td>开口方向</td>
+<td>上/下/左/右</td>
+<td>上</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>点击 <strong>创建</strong> 按钮</li>
+</ol>
+<h3>抛物线标准方程</h3>
+<ul>
+<li>开口向上：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3715em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></li>
+<li>开口向下：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3715em;vertical-align:-0.8804em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></li>
+<li>开口向右：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3715em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></li>
+<li>开口向左：<span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3715em;vertical-align:-0.8804em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4911em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">4</span><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></li>
+</ul>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>双曲线/抛物线上创建点 [构造]</h2>
+<p>与椭圆类似，可以使用点工具的吸附功能在双曲线或抛物线上创建可滑动的约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>点图标</strong></li>
+<li>将鼠标移到双曲线或抛物线上（自动吸附）</li>
+<li>点击创建约束点</li>
+</ol>
+<h2>圆锥曲线交点 [构造]</h2>
+<h3>支持的曲线间交点</h3>
+<ul>
+<li>直线与双曲线交点</li>
+<li>直线与抛物线交点</li>
+<li>圆与双曲线交点</li>
+<li>圆与抛物线交点</li>
+<li>椭圆与双曲线交点</li>
+<li>抛物线与椭圆交点</li>
+<li>抛物线与双曲线交点</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个图形（Shift+点击）</li>
+<li>点击左侧菜单 <strong>更多 → 构造交点</strong></li>
+</ol>
+<h2>圆锥曲线圆 [参数]</h2>
+<h3>作用</h3>
+<p>通过参数方程创建精确的圆，是&quot;圆锥曲线椭圆&quot;的特例（a=b）。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 圆锥曲线圆</strong></li>
+<li>设置半径和中心点坐标</li>
+<li>点击 <strong>创建</strong></li>
+</ol>
+<blockquote>
+<p><strong>与&quot;画圆&quot;的区别</strong>：圆锥曲线圆使用坐标定义，随坐标系缩放；&quot;画圆&quot;是自由图形，不依赖坐标系。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>切线工具 [构造]</h2>
+<h3>作用</h3>
+<p>过曲线上一点作该曲线的切线。支持任意函数曲线和圆锥曲线。</p>
+<h3>前置条件</h3>
+<ul>
+<li>需要有一个函数曲线（任意函数/二次函数等）或圆锥曲线</li>
+<li>需要曲线上有一个约束点</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>在曲线上创建一个点（用点工具吸附到曲线上）</li>
+<li>选中该点</li>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 切线</strong></li>
+<li>切线自动创建，过该点且与曲线相切</li>
+</ol>
+<h3>操作步骤（替代方式）</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 切线</strong> 进入切线模式</li>
+<li>点击曲线上的某位置</li>
+<li>切线和切点自动创建</li>
+</ol>
+<blockquote>
+<p>切线使用曲线在该点的导数计算斜率，因此只对可导函数有效。</p>
+</blockquote>
+<h2>圆锥曲线对比一览</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>标准方程</th>
+<th>参数数量</th>
+<th>渐近线</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>椭圆</td>
+<td>x²/a² + y²/b² = 1</td>
+<td>a, b, 中心, 旋转角</td>
+<td>无</td>
+</tr>
+<tr>
+<td>双曲线</td>
+<td>x²/a² − y²/b² = 1</td>
+<td>a, b, 中心, 方向</td>
+<td>两条</td>
+</tr>
+<tr>
+<td>抛物线</td>
+<td>y = x²/(4p)</td>
+<td>p, 顶点, 方向</td>
+<td>无</td>
+</tr>
+<tr>
+<td>圆</td>
+<td>x² + y² = r²</td>
+<td>r, 中心</td>
+<td>无</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">隐函数曲线</h1>
+<h1>隐函数曲线 [参数]</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<div class="two-col">
+<div>
+
+<h2>隐函数曲线</h2>
+<h3>作用</h3>
+<p>绘制形如 f(x,y)=0 的任意隐函数曲线。比显函数 y=f(x) 更强大，能表达无法写成 y=f(x) 形式的曲线。</p>
+<h3>前置条件</h3>
+<ul>
+<li>必须先建立坐标系（见第02章）</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 隐函数曲线</strong></li>
+<li>在对话框中输入表达式（方程的一侧，系统默认 =0），如：<ul>
+<li><code>x^2 + y^2 - 1</code> → 单位圆</li>
+<li><code>x^2/4 + y^2/9 - 1</code> → 椭圆</li>
+<li><code>y - x^2</code> → 抛物线（等号表达式自动转换）</li>
+<li><code>x^3 + y^3 - 3*x*y</code> → 笛卡尔叶形线</li>
+</ul>
+</li>
+<li>也可点击快捷示例按钮快速选择</li>
+<li>点击 <strong>创建</strong> 按钮</li>
+<li>曲线在画布上绘制（复杂曲线可能需要几秒计算）</li>
+</ol>
+<h3>支持的运算符和函数</h3>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>支持内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算术</td>
+<td>+, -, *, /, ^</td>
+</tr>
+<tr>
+<td>三角函数</td>
+<td>sin, cos, tan, asin, acos, atan</td>
+</tr>
+<tr>
+<td>双曲函数</td>
+<td>sinh, cosh, tanh</td>
+</tr>
+<tr>
+<td>指数对数</td>
+<td>exp, log, log2, log10, sqrt</td>
+</tr>
+<tr>
+<td>绝对值</td>
+<td>abs</td>
+</tr>
+<tr>
+<td>常量</td>
+<td>pi, e</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+
+<h2>经典曲线示例</h2>
+<table>
+<thead>
+<tr>
+<th>曲线名称</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单位圆</td>
+<td><code>x^2 + y^2 - 1</code></td>
+</tr>
+<tr>
+<td>椭圆</td>
+<td><code>x^2/4 + y^2/9 - 1</code></td>
+</tr>
+<tr>
+<td>双曲线</td>
+<td><code>x^2 - y^2 - 1</code></td>
+</tr>
+<tr>
+<td>抛物线</td>
+<td><code>y - x^2</code></td>
+</tr>
+<tr>
+<td>笛卡尔叶形线</td>
+<td><code>x^3 + y^3 - 3*x*y</code></td>
+</tr>
+<tr>
+<td>三叶玫瑰线</td>
+<td><code>(x^2 + y^2)^2 - 4*x*(x^2 - 3*y^2)</code></td>
+</tr>
+<tr>
+<td>心形线</td>
+<td><code>(x^2 + y^2 - 1)^3 - x^2*y^3</code></td>
+</tr>
+<tr>
+<td>正弦曲线</td>
+<td><code>sin(x) - y</code></td>
+</tr>
+<tr>
+<td>余弦曲线</td>
+<td><code>cos(x) - y</code></td>
+</tr>
+<tr>
+<td>双纽线</td>
+<td><code>(x^2 + y^2)^2 - (x^2 - y^2)</code></td>
+</tr>
+<tr>
+<td>星形线</td>
+<td><code>x^(2/3) + y^(2/3) - 1</code></td>
+</tr>
+</tbody></table>
+<h2>使用技巧</h2>
+<h3>等号表达式</h3>
+<p>输入 <code>y = x^2</code> 会自动转换为 <code>y - x^2</code>，等价于 <code>y - x^2 = 0</code>。</p>
+<h3>计算精度</h3>
+<p>复杂曲线或表达式变化剧烈的区域可能需要更密集的网格计算。如果曲线有断点或缺失：</p>
+<ul>
+<li>尝试调整坐标系的显示范围</li>
+<li>缩小 xmin/xmax/ymin/ymax 范围提高精度</li>
+</ul>
+<h3>与显函数的区别</h3>
+<ul>
+<li><strong>显函数 y=f(x)</strong>：通过「任意函数」工具绘制，速度快，但每个 x 只能对应一个 y</li>
+<li><strong>隐函数 f(x,y)=0</strong>：通过本工具绘制，能表达闭合曲线和多值函数，但计算较慢</li>
+</ul>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">变换操作</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>变换操作属于 <strong>[构造]</strong> 模式——需先选中对象，再通过右侧菜单执行。变换结果保留原始对象，与原对象保持<strong>动态关联</strong>（修改原对象或变换参数时结果自动更新）。可对结果再次变换（链式变换），删除变换结果选中后按 Delete 键。</p>
+<blockquote>
+<p><strong>通用前提</strong>：所有变换操作都需要先选中至少一个对象。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>旋转 [构造]</h2>
+<p>将选中对象绕指定中心点旋转一定角度。</p>
+<ol>
+<li>选中要旋转的对象（可多选）</li>
+<li>右侧菜单 <strong>运动 → 旋转</strong>，设置角度（度数或弧度）</li>
+<li>点击旋转中心点（或选择已有点）</li>
+<li>旋转后的图形创建，原始对象保留</li>
+</ol>
+<h2>点对称（中心对称）[构造]</h2>
+<p>创建关于某中心点对称的图形。</p>
+<ol>
+<li>选中要变换的对象</li>
+<li>右侧菜单 <strong>运动 → 点对称</strong></li>
+<li>点击对称中心点</li>
+<li>对称图形自动创建（拖动中心点，对称图形跟随更新）</li>
+</ol>
+</div>
+<div>
+
+<h2>轴对称（翻折）[构造]</h2>
+<p>创建关于某直线对称的图形。</p>
+<ol>
+<li>选中要变换的对象</li>
+<li>右侧菜单 <strong>运动 → 轴对称</strong></li>
+<li>点击作为对称轴的直线</li>
+<li>对称图形自动创建（移动对称轴，图形跟随翻折）</li>
+</ol>
+<h2>缩放 [构造]</h2>
+<p>按比例放大或缩小图形。</p>
+<ol>
+<li>选中要缩放的对象</li>
+<li>右侧菜单 <strong>运动 → 缩放</strong>，设置比例 m/n（实际比例 = m÷n）</li>
+<li>点击缩放中心点</li>
+<li>缩放图形创建（如 m=2,n=1 放大2倍，m=1,n=2 缩小为1/2）</li>
+</ol>
+<h2>平移 [构造]</h2>
+<p>将图形按指定向量平移。</p>
+<ol>
+<li>选中要平移的对象</li>
+<li>右侧菜单 <strong>运动 → 平移</strong></li>
+<li>依次点击平移向量的起点和终点</li>
+<li>图形按向量方向和距离平移（修改向量起终点会联动更新）</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">变换操作-续</h1>
+<h1>变换操作（续）——高级变换</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章是变换操作的延续，介绍更多基于选择集的高级变换。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>构造正n边形 [构造]</h2>
+<h3>作用</h3>
+<p>基于两个已有点（作为边长基准）构造正n边形。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>放置两个点（将作为正多边形的一条边）</li>
+<li>选中这两个点</li>
+<li>点击左侧菜单 <strong>更多 → 几何图形 → 构造正n边形</strong></li>
+<li>在弹出的对话框中输入边数 n（n ≥ 3）</li>
+<li>点击确定</li>
+<li>正n边形自动生成</li>
+</ol>
+<blockquote>
+<p>修改原始两点或边数 n，正多边形自动更新。</p>
+</blockquote>
+<h2>多点旋转 [构造]</h2>
+<h3>作用</h3>
+<p>批量旋转多个对象。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中所有要旋转的对象</li>
+<li>在右侧菜单点击 <strong>运动 → 旋转</strong></li>
+<li>设置旋转角度（度数或弧度）</li>
+<li>点击旋转中心点</li>
+<li>所有选中对象绕同一点旋转</li>
+</ol>
+</div>
+<div>
+
+<h2>组合变换</h2>
+<h3>链式变换</h3>
+<p>可以对变换结果再次应用变换：</p>
+<ol>
+<li>选中对象 A → 旋转 90° → 得到 A&#39;</li>
+<li>选中 A&#39; → 平移 → 得到 A&#39;&#39;</li>
+</ol>
+<p>每次变换都保留中间结果，形成变换链。</p>
+<h3>同时变换多个对象</h3>
+<p>选中多个对象后应用变换，每个对象独立变换：</p>
+<ol>
+<li>框选多个图形</li>
+<li>应用旋转/对称/缩放</li>
+<li>每个图形各自绕参考点变换</li>
+</ol>
+<h2>变换与坐标系</h2>
+<p>变换操作的坐标计算有两种模式：</p>
+<ul>
+<li><strong>无坐标系时</strong>：使用屏幕像素坐标，旋转/缩放基于像素位置</li>
+<li><strong>有坐标系时</strong>：使用数学坐标，变换精度更高</li>
+</ul>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">标记测量</h1>
+<h1>标记与测量</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>标记与测量操作的结果会动态更新——当被测量的对象移动时，数值自动刷新。</p>
+<blockquote>
+<p><strong>通用前提</strong>：测量操作通常需要选中要测量的对象，某些还需要坐标系。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>标记距离 [标记]</h2>
+<h3>作用</h3>
+<p>测量并显示两点间的距离值。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中第一个点</li>
+<li>按住 Shift，选中第二个点</li>
+<li>在右侧菜单点击 <strong>标记 → 标记距离</strong></li>
+<li>距离数值显示在两点之间</li>
+</ol>
+<h3>像素距离 vs 坐标距离</h3>
+<ul>
+<li><strong>无坐标系</strong>：显示屏幕像素距离</li>
+<li><strong>有坐标系</strong>：显示数学坐标距离（自动使用坐标系的单位长度）</li>
+</ul>
+<h2>标记单位距离 [标记]</h2>
+<h3>作用</h3>
+<p>设定一个单位长度作为后续测量的基准。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个点（确定单位长度）</li>
+<li>在右侧菜单点击 <strong>标记 → 标记单位距离</strong></li>
+<li>后续距离测量以此为单位</li>
+</ol>
+</div>
+<div>
+
+<h2>标记角度 [标记]</h2>
+<h3>作用</h3>
+<p>测量并显示角度值。</p>
+<h3>标记角度（度数）</h3>
+<ol>
+<li>选中三个点：角的一边上一点 → 顶点 → 另一边上的点</li>
+<li>在右侧菜单点击 <strong>标记 → 标记角度（度数）</strong></li>
+<li>角度以度数显示（如 45°）</li>
+</ol>
+<h3>标记角度（弧度）</h3>
+<ol>
+<li>同样选中三个点</li>
+<li>在右侧菜单点击 <strong>标记 → 标记角度（弧度）</strong></li>
+<li>角度以弧度显示（如 π/4）</li>
+</ol>
+<h2>标记三角形面积 [标记]</h2>
+<h3>作用</h3>
+<p>计算三个点构成的三角形面积。</p>
+<h3>前置条件</h3>
+<ul>
+<li>需要坐标系</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>选中三个点</li>
+<li>在右侧菜单点击 <strong>标记 → 标记三角形面积</strong></li>
+<li>面积数值显示</li>
+</ol>
+<h2>创建值标签</h2>
+<h3>作用</h3>
+<p>将测量数值固定为可拖动的标签。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>先进行测量（距离/角度/面积）</li>
+<li>选中一个点（标签锚点）或空白位置</li>
+<li>在右侧菜单点击 <strong>标记 → 创建值标签</strong></li>
+<li>数值标签创建，可拖动到任意位置</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">标记测量-续</h1>
+<h1>标记与测量（续）——高级测量</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章是标记与测量的延续，介绍使用坐标系的精确测量功能。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>坐标值标记 [标记]</h2>
+<h3>作用</h3>
+<p>显示某个点在当前坐标系中的 (x, y) 坐标值。</p>
+<h3>前置条件</h3>
+<ul>
+<li>需要坐标系</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一个点</li>
+<li>在右侧菜单点击 <strong>标记 → 坐标值标记</strong></li>
+<li>该点的坐标值（如 &quot;(3.00, 4.00)&quot;）显示在点附近</li>
+<li>拖动点时坐标值自动更新</li>
+</ol>
+<h2>坐标距离标记 [标记]</h2>
+<h3>作用</h3>
+<p>用坐标系单位测量并标记两点间距离（与&quot;标记距离&quot;的区别：始终使用坐标单位而非像素）。</p>
+<h3>前置条件</h3>
+<ul>
+<li>需要坐标系</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>选中两个点</li>
+<li>在右侧菜单点击 <strong>标记 → 坐标距离标记</strong></li>
+<li>距离以坐标单位显示</li>
+</ol>
+</div>
+<div>
+
+<h2>参数设置</h2>
+<h3>作用</h3>
+<p>设置可全局引用的参数变量。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>在右侧菜单点击 <strong>标记 → 参数设置</strong></li>
+<li>添加参数（如 a=3, b=5, k=-2）</li>
+<li>在函数表达式和其他需要数值的地方引用这些参数：<ul>
+<li><code>a*sin(x)</code> — 使用参数 a</li>
+<li><code>a*x^2 + b*x + c</code> — 多个参数组合</li>
+</ul>
+</li>
+</ol>
+<h3>参数用途</h3>
+<ul>
+<li>函数绘图：<code>a*sin(b*x)</code></li>
+<li>圆的半径：引用参数作为半径值</li>
+<li>缩放比例：引用参数作为变换比例</li>
+</ul>
+<h2>标记面积 [标记]</h2>
+<h3>作用</h3>
+<p>计算封闭多边形的面积。</p>
+<h3>前置条件</h3>
+<ul>
+<li>需要坐标系</li>
+</ul>
+<h3>操作步骤</h3>
+<ol>
+<li>依次选中多边形各顶点（至少3个）</li>
+<li>在右侧菜单点击 <strong>标记 → 标记面积</strong></li>
+<li>多边形面积以平方坐标单位显示</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">标签注释</h1>
+<h1>标签与注释</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>点标签 [标记]</h2>
+<h3>作用</h3>
+<p>为几何点添加文字标签（如 A、B、C、P1 等）。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一个点</li>
+<li>在右侧菜单点击 <strong>构造 → 显示点标签</strong></li>
+<li>在弹出的对话框中输入标签文字（如 &quot;A&quot;、&quot;P1&quot;、&quot;原点&quot;）</li>
+<li>点击确定</li>
+<li>标签创建在点附近，随点移动</li>
+</ol>
+<h3>标签自动递增</h3>
+<p>连续为多个点添加标签时，标签字母自动递增（A→B→C→...→Z→A1→B1→...）</p>
+<h3>修改标签</h3>
+<ol>
+<li>选中已有标签</li>
+<li>在右侧菜单修改标签文字</li>
+<li>或双击标签直接编辑</li>
+</ol>
+</div>
+<div>
+
+<h2>添加图片 [编辑]</h2>
+<h3>作用</h3>
+<p>在画布上插入图片，可用于标注、装饰或作为绘图参考。</p>
+<h3>操作步骤（本地图片）</h3>
+<ol>
+<li>在右侧菜单点击 <strong>视图 → 添加图片</strong></li>
+<li>选择本地图片文件（PNG/JPG/GIF/WebP/BMP）</li>
+<li>图片插入到画布</li>
+<li>拖动图片调整位置</li>
+<li>拖动图片四角调整大小</li>
+</ol>
+<h3>操作步骤（剪贴板粘贴）</h3>
+<ol>
+<li>复制图片到剪贴板（如截图工具、浏览器）</li>
+<li>在右侧菜单点击 <strong>视图 → 粘贴图片</strong></li>
+<li>图片从剪贴板插入画布</li>
+</ol>
+<h3>图片操作</h3>
+<ul>
+<li><strong>移动</strong>：切换到选择模式，拖动图片</li>
+<li><strong>缩放</strong>：拖动图片四角</li>
+<li><strong>删除</strong>：选中后按 Delete</li>
+</ul>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">Markdown笔记</h1>
+<h1>Markdown 笔记</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>Markdown 笔记 [编辑]</h2>
+<h3>作用</h3>
+<p>在画布上插入 Markdown 格式的富文本笔记，支持公式、图片、代码块等。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>在右侧菜单点击 <strong>视图 → 新建笔记</strong>（或使用快捷键）</li>
+<li>在弹出对话框中输入 Markdown 内容，例如：</li>
+</ol>
+<pre><code class="language-markdown"># 标题
+- 列表项1
+- 列表项2
+
+公式：$E = mc^2$
+
+代码：
+`python
+print(&quot;hello&quot;)
+`
+</code></pre>
+<ol start="3">
+<li>点击确定</li>
+<li>笔记显示在画布上，可拖动调整位置</li>
+</ol>
+<h3>支持的 Markdown 语法</h3>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code># 标题</code></td>
+<td>一级标题</td>
+</tr>
+<tr>
+<td><code>**粗体**</code></td>
+<td><strong>粗体</strong></td>
+</tr>
+<tr>
+<td><code>*斜体*</code></td>
+<td><em>斜体</em></td>
+</tr>
+<tr>
+<td><code>- 列表</code></td>
+<td>无序列表</td>
+</tr>
+<tr>
+<td><code>$E=mc^2$</code></td>
+<td>行内公式（KaTeX渲染）</td>
+</tr>
+<tr>
+<td><code><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></code></td>
+<td>独立公式块</td>
+</tr>
+<tr>
+<td><code>[链接](url)</code></td>
+<td>超链接</td>
+</tr>
+<tr>
+<td><code>`代码`</code></td>
+<td>代码块</td>
+</tr>
+</tbody></table>
+</div>
+<div>
+
+<h2>笔记操作</h2>
+<h3>编辑笔记</h3>
+<ol>
+<li>双击画布上的笔记</li>
+<li>在编辑器中修改内容</li>
+<li>点击空白处完成编辑</li>
+</ol>
+<h3>移动笔记</h3>
+<p>切换到选择模式，拖动笔记到目标位置。</p>
+<h3>调整字体大小</h3>
+<p>在右侧菜单中调整笔记的字体大小。</p>
+<h3>笔记渲染为图片</h3>
+<p>大段笔记可渲染为图片，提高画布性能：</p>
+<ol>
+<li>选中笔记</li>
+<li>右键选择 <strong>渲染为图片</strong></li>
+<li>笔记转为不可编辑的图片格式</li>
+</ol>
+<h2>笔记锚点</h2>
+<h3>作用</h3>
+<p>将笔记锚定到某个几何点上，笔记会随该点移动。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>选中一个点</li>
+<li>创建笔记时，笔记会自动锚定到该点</li>
+<li>或：先创建笔记，再拖动笔记将其关联到某个点</li>
+</ol>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">视图控制</h1>
+<h1>视图控制</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>缩放视图</h2>
+<h3>放大</h3>
+<ol>
+<li>点击左侧菜单 <strong>页面图标 → 放大</strong>（或使用鼠标滚轮）</li>
+<li>画布以当前视图中心为基准放大 5%</li>
+</ol>
+<h3>缩小</h3>
+<ol>
+<li>点击左侧菜单 <strong>页面图标 → 缩小</strong>（或使用鼠标滚轮）</li>
+<li>画布以当前视图中心为基准缩小 5%</li>
+</ol>
+<h3>恢复原状</h3>
+<ol>
+<li>点击左侧菜单 <strong>页面图标 → 恢复原状</strong></li>
+<li>画布恢复到默认 100% 缩放和原始位置</li>
+</ol>
+<h2>平移视图</h2>
+<h3>方式一：移动模式</h3>
+<ol>
+<li>点击左侧菜单 <strong>移动图标</strong>（十字箭头）</li>
+<li>在画布空白处按住拖动 → 平移视图</li>
+</ol>
+<h3>方式二：鼠标右键</h3>
+<p>在任意模式下，按住鼠标右键拖动即可平移视图。</p>
+<h3>方式三：触摸板</h3>
+<p>双指滑动（触摸板）平移视图。</p>
+</div>
+<div>
+
+<h2>颜色模式</h2>
+<h3>原图模式 / 二极化模式</h3>
+<ul>
+<li><strong>原图模式</strong>：保持导入 PDF/图片的原始色彩</li>
+<li><strong>二极化模式</strong>：将内容转为黑白高对比度效果</li>
+</ul>
+<p>切换方式：左侧菜单 <strong>页面图标 → 原图/二极化</strong></p>
+<h2>画布背景色</h2>
+<p>通过颜色选择器中的 <strong>背景色</strong> 按钮调整画布底色。</p>
+<h2>右侧菜单显示/隐藏</h2>
+<ul>
+<li>点击 <strong>右侧菜单折叠按钮</strong> 可显示或隐藏右侧功能面板</li>
+<li>隐藏后可获得更大的画布空间</li>
+</ul>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">视图控制-续</h1>
+<h1>视图控制（续）</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>选择操作</h2>
+<h3>全选</h3>
+<p>选中画布上所有可见对象。</p>
+<p><strong>操作</strong>：在右侧菜单点击 <strong>选择 → 全选</strong>（或 Ctrl+A）</p>
+<h3>取消全部选择</h3>
+<p>清除所有选中状态。</p>
+<p><strong>操作</strong>：在画布空白处点击，或在右侧菜单点击 <strong>选择 → 取消选择</strong></p>
+<h3>框选</h3>
+<p>按住鼠标在空白处拖动，框内所有对象被选中。</p>
+<h3>选择所有点/线/圆</h3>
+<ul>
+<li>在右侧菜单可分别选择所有点、所有线、所有圆</li>
+<li>用于批量操作（如批量隐藏、批量换色）</li>
+</ul>
+</div>
+<div>
+
+<h2>隐藏与显示</h2>
+<h3>隐藏选中对象</h3>
+<ol>
+<li>选中要隐藏的对象</li>
+<li>在右侧菜单点击 <strong>构造 → 隐藏选中对象</strong></li>
+<li>或右键选择隐藏</li>
+</ol>
+<h3>显示所有隐藏对象</h3>
+<p>在右侧菜单点击 <strong>构造 → 显示所有隐藏对象</strong>，恢复所有被隐藏的对象。</p>
+<blockquote>
+<p>隐藏不同于删除：隐藏的对象仍存在于页面中，可以通过&quot;显示所有隐藏&quot;恢复。</p>
+</blockquote>
+<h2>图层顺序</h2>
+<h3>置顶 / 置底</h3>
+<ol>
+<li>选中对象</li>
+<li>右键选择 <strong>置顶</strong> 或 <strong>置底</strong></li>
+<li>调整对象在图层中的顺序</li>
+</ol>
+<blockquote>
+<p>图层顺序影响选中优先级——上层的对象先被选中。</p>
+</blockquote>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">页面操作</h1>
+<h1>页面操作</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>页面管理</h2>
+<p>黑板支持多页面，每个页面独立绘制。页面序号显示在左下角。</p>
+<h3>翻页</h3>
+<ul>
+<li><strong>上一页</strong>：点击左侧菜单 <strong>← 图标</strong>（或 PageUp 键）</li>
+<li><strong>下一页</strong>：点击左侧菜单 <strong>→ 图标</strong>（或 PageDown 键）</li>
+<li><strong>跳转</strong>：点击左下角页码数字（如 &quot;3/10&quot;），输入目标页码</li>
+</ul>
+<h3>添加页面</h3>
+<ul>
+<li><strong>添加空白页</strong>：在最后一页继续翻页，自动创建新页面</li>
+<li><strong>复制当前页到下一页</strong>：左侧菜单 <strong>页面图标 → 复制当前页到下一页</strong> —— 将当前页所有内容复制到新页面</li>
+</ul>
+<h3>删除页面</h3>
+<ul>
+<li>左侧菜单 <strong>页面图标 → 删除当前页</strong></li>
+</ul>
+<blockquote>
+<p>⚠️ 删除页面不可撤销！删除前请确认不需要该页内容。</p>
+</blockquote>
+</div>
+<div>
+
+<h2>文件操作</h2>
+<h3>保存</h3>
+<ul>
+<li><strong>保存 ban 文件</strong>：左侧菜单 <strong>文件夹图标 → 保存ban文件</strong> —— 保存为黑板专用格式（.ban），保留所有可编辑信息</li>
+<li><strong>另存为 ban 文件</strong>：保存为新文件</li>
+<li><strong>保存为 PDF</strong>：导出为 PDF 文档</li>
+</ul>
+<h3>导出当前页为图片</h3>
+<p>左侧菜单 <strong>文件夹图标 → 当前页保存为图片</strong> —— 将当前页面导出为 PNG 图片。</p>
+<h3>打开文件</h3>
+<ul>
+<li><strong>本地文件</strong>：文件夹图标 → 打开本地文件</li>
+<li><strong>百度网盘</strong>：文件夹图标 → 打开百度网盘文件</li>
+<li><strong>黑板</strong>：文件夹图标 → 黑板 —— 新建空白黑板</li>
+</ul>
+<h3>最近文件</h3>
+<p>在文件夹菜单中会显示最近打开的文件列表，点击可快速切换。</p>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">函数绘图</h1>
+<h1>函数绘图</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>函数绘图绘制显函数 y=f(x) 曲线，属于 <strong>[参数]</strong> 模式——通过输入数学表达式创建，需要坐标系。</p>
+<blockquote>
+<p><strong>前置条件</strong>：以下所有函数绘图操作都需要先建立坐标系（见第02章）。</p>
+</blockquote>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>任意函数 [参数]</h2>
+<h3>作用</h3>
+<p>绘制自定义显函数曲线 y=f(x)。最灵活的函数绘图工具。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 任意函数</strong></li>
+<li>在&quot;函数解析式&quot;对话框中输入表达式：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>曲线</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>sin(x)</code></td>
+<td>正弦曲线</td>
+</tr>
+<tr>
+<td><code>cos(x)</code></td>
+<td>余弦曲线</td>
+</tr>
+<tr>
+<td><code>tan(x)</code></td>
+<td>正切曲线</td>
+</tr>
+<tr>
+<td><code>x^2</code></td>
+<td>抛物线</td>
+</tr>
+<tr>
+<td><code>x^3</code></td>
+<td>三次曲线</td>
+</tr>
+<tr>
+<td><code>log(x)</code></td>
+<td>对数曲线</td>
+</tr>
+<tr>
+<td><code>exp(x)</code></td>
+<td>指数曲线</td>
+</tr>
+<tr>
+<td><code>sqrt(x)</code></td>
+<td>平方根曲线</td>
+</tr>
+<tr>
+<td><code>abs(x)</code></td>
+<td>绝对值曲线</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>设置 x 的范围：<ul>
+<li><strong>xmin</strong>：左边界（如 -10）</li>
+<li><strong>xmax</strong>：右边界（如 10）</li>
+</ul>
+</li>
+<li>设置 y 轴显示范围（可选）：<ul>
+<li><strong>ymin</strong>、<strong>ymax</strong></li>
+</ul>
+</li>
+<li>点击 <strong>确定</strong> 绘制</li>
+</ol>
+<h3>支持的高级表达式</h3>
+<ul>
+<li>组合函数：<code>sin(x) + cos(x)</code></li>
+<li>嵌套函数：<code>sin(x^2)</code></li>
+<li>参数引用：如已设置参数 a，可用 <code>a*sin(x)</code></li>
+</ul>
+</div>
+<div>
+
+<h2>二次函数 [参数]</h2>
+<h3>作用</h3>
+<p>绘制抛物线 y = ax² + bx + c。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 二次函数</strong></li>
+<li>在弹出的对话框中输入：<ul>
+<li><strong>a</strong>：二次项系数</li>
+<li><strong>b</strong>：一次项系数（点击第二步确定）</li>
+<li><strong>c</strong>：常数项（点击第三步确定）</li>
+</ul>
+</li>
+<li>设置 x 范围</li>
+<li>点击确定绘制</li>
+</ol>
+<blockquote>
+<p>也可通过鼠标操作：点击三个点来确定经过这三点的抛物线。</p>
+</blockquote>
+<h2>幂函数 [参数]</h2>
+<h3>作用</h3>
+<p>绘制 y = x^(m/n) 形式的幂函数。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 幂函数</strong></li>
+<li>设置幂指数：<ul>
+<li><strong>m</strong>（分子）：如 1</li>
+<li><strong>n</strong>（分母）：如 2</li>
+</ul>
+</li>
+<li>m=1, n=2 → y = x^(1/2) = √x（平方根函数）</li>
+<li>m=3, n=1 → y = x³（三次函数）</li>
+</ol>
+<blockquote>
+<p><strong>n 必须为正整数</strong>。负指数通过 m 取负值实现。</p>
+</blockquote>
+</div>
+</div>
+
+<hr>
+<h2>常用函数表达式速查</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>表达式</th>
+<th>定义域注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正弦</td>
+<td><code>sin(x)</code></td>
+<td>全实数</td>
+</tr>
+<tr>
+<td>余弦</td>
+<td><code>cos(x)</code></td>
+<td>全实数</td>
+</tr>
+<tr>
+<td>正切</td>
+<td><code>tan(x)</code></td>
+<td>x ≠ π/2 + kπ</td>
+</tr>
+<tr>
+<td>自然对数</td>
+<td><code>log(x)</code></td>
+<td>x &gt; 0</td>
+</tr>
+<tr>
+<td>常用对数</td>
+<td><code>log(x)/log(10)</code></td>
+<td>x &gt; 0</td>
+</tr>
+<tr>
+<td>指数(e)</td>
+<td><code>exp(x)</code></td>
+<td>全实数</td>
+</tr>
+<tr>
+<td>平方根</td>
+<td><code>sqrt(x)</code></td>
+<td>x ≥ 0</td>
+</tr>
+<tr>
+<td>绝对值</td>
+<td><code>abs(x)</code></td>
+<td>全实数</td>
+</tr>
+<tr>
+<td>取整</td>
+<td><code>floor(x)</code></td>
+<td>全实数</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>完整支持函数列表见 math.js 文档。黑板底层使用 math.js 引擎计算表达式。</p>
+</blockquote>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">函数绘图-续</h1>
+<h1>函数绘图（续）——高级函数功能</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章是函数绘图的延续，介绍函数曲线的操作技巧和高级功能。所有功能需要坐标系。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>函数曲线的操作</h2>
+<h3>选中函数曲线</h3>
+<ol>
+<li>切换到选择模式（光标图标）</li>
+<li>点击函数曲线上的任意位置</li>
+<li>曲线高亮显示（红色）</li>
+</ol>
+<h3>修改函数曲线</h3>
+<ol>
+<li>双击函数曲线</li>
+<li>在弹出的编辑器中修改表达式或参数</li>
+<li>点击确定，曲线更新</li>
+</ol>
+<h3>删除函数曲线</h3>
+<p>选中曲线后按 Delete 键。</p>
+<h3>修改曲线颜色/粗细</h3>
+<ol>
+<li>选中曲线</li>
+<li>调整颜色选择器或线条样式</li>
+<li>曲线即时更新</li>
+</ol>
+<h2>调整定义域</h2>
+<h3>拖动定义域端点</h3>
+<ol>
+<li>函数曲线上有两个控制点（定义域起止标记）</li>
+<li>选中并拖动这些点来改变 x 的范围</li>
+<li>曲线实时裁剪到新范围</li>
+</ol>
+</div>
+<div>
+
+<h2>函数曲线上的点 [构造]</h2>
+<h3>作用</h3>
+<p>在函数曲线上创建可滑动的约束点。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击左侧菜单 <strong>点图标</strong></li>
+<li>将鼠标移到函数曲线上（自动吸附高亮）</li>
+<li>点击创建约束点</li>
+<li>拖动点时，点沿曲线移动，自动更新对应的 y 值</li>
+</ol>
+<h2>绘制函数曲线的切线 [构造]</h2>
+<h3>作用</h3>
+<p>在函数的指定点处绘制切线。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>在函数曲线上创建一个约束点</li>
+<li>选中该点</li>
+<li>点击左侧菜单 <strong>更多 → 代数图形 → 切线</strong></li>
+<li>切线自动计算并绘制</li>
+</ol>
+<h2>多函数叠加</h2>
+<h3>同一坐标系下绘制多条曲线</h3>
+<ol>
+<li>建立坐标系</li>
+<li>依次使用「任意函数」创建多条曲线：<ul>
+<li>y = sin(x)</li>
+<li>y = cos(x)</li>
+<li>y = sin(x) + cos(x)</li>
+</ul>
+</li>
+<li>所有曲线共享同一坐标系，便于比较</li>
+</ol>
+<h2>函数与几何图形结合</h2>
+<h3>求函数与直线的交点</h3>
+<ol>
+<li>在函数曲线上方画一条直线（或在函数曲线附近创建一条构造线）</li>
+<li>选中直线和函数曲线</li>
+<li>点击左侧菜单 <strong>更多 → 构造交点</strong></li>
+</ol>
+<blockquote>
+<p>函数曲线与圆锥曲线类似，支持所有交点计算。</p>
+</blockquote>
+</div>
+</div>
+
+</section>
+<section class="chapter">
+<h1 class="chapter-title">视频处理</h1>
+<h1>视频处理——录制与播放</h1>
+<style>
+.two-col {
+  display: flex;
+  gap: 2em;
+}
+.two-col > div {
+  flex: 1;
+  width: 50%;
+}
+</style>
+
+<p>本章介绍黑板的视频录制和播放功能。录制功能可将画布操作过程录制成 WebM 视频文件，播放功能支持在黑板内直接播放视频。</p>
+<hr>
+<div class="two-col">
+<div>
+
+<h2>录制视频</h2>
+<h3>作用</h3>
+<p>将黑板画布上的操作过程录制成视频文件（WebM 格式），适合录制教学讲解、解题过程等。</p>
+<h3>操作步骤</h3>
+<ol>
+<li>点击右侧菜单 <strong>视频 → 录制视频</strong></li>
+<li>在弹出的录制面板中设置参数：<ul>
+<li><strong>帧率</strong>：10 / 15 / 24 / 30 fps（帧率越高画面越流畅，文件越大）</li>
+<li><strong>录制音频</strong>：开启/关闭麦克风录音</li>
+<li><strong>音频来源</strong>：麦克风（录制说话声）/ 系统音频（录制电脑内部声音）</li>
+</ul>
+</li>
+<li>点击 <strong>开始录制</strong> 按钮</li>
+<li>录制过程中：<ul>
+<li>画布右上角显示红色录制指示器（闪烁红点 + 计时器）</li>
+<li>可关闭录制面板，录制在后台继续</li>
+<li>可随时打开面板 <strong>暂停</strong> / <strong>继续</strong> / <strong>停止</strong></li>
+</ul>
+</li>
+<li>点击 <strong>停止录制</strong> 按钮</li>
+<li>弹出保存对话框，选择保存位置和文件名</li>
+</ol>
+<h3>录制范围</h3>
+<p>只录制画布<strong>当前视口内的可见区域</strong>。超出屏幕范围的画布内容不会被录制。</p>
+<h3>输出格式</h3>
+<ul>
+<li>格式：WebM（VP9 编码）</li>
+<li>默认文件名：<code>课程录制_YYYY-MM-DD HH-mm-ss.webm</code></li>
+</ul>
+</div>
+<div>
+
+<h2>播放视频</h2>
+<h3>作用</h3>
+<p>在黑板内播放视频文件，支持 WebM / MP4 / MOV 格式，可拖动位置、调整大小。</p>
+<h3>打开视频的方式</h3>
+<p><strong>方式一：通过菜单打开</strong></p>
+<ol>
+<li>点击右侧菜单 <strong>视频 → 播放视频</strong></li>
+<li>在弹出的视频播放器中点击 <strong>选择视频文件</strong></li>
+<li>选择本地视频文件</li>
+</ol>
+<p><strong>方式二：直接打开视频文件</strong></p>
+<ol>
+<li>点击左侧菜单 <strong>文件夹 → 打开本地文件</strong>（或打开百度网盘文件）</li>
+<li>选择 .webm / .mp4 / .mov 文件</li>
+<li>视频自动在播放器中打开</li>
+</ol>
+<p><strong>方式三：在最近文件列表中点击</strong>
+如果之前打开过 .webm 文件，可在左侧文件夹菜单的最近文件列表中直接点击打开。</p>
+<h3>播放器操作</h3>
+<ul>
+<li><strong>播放/暂停/进度条</strong>：标准视频控件</li>
+<li><strong>全屏</strong>：点击标题栏全屏按钮或双击视频画面</li>
+<li><strong>拖动</strong>：按住标题栏拖动播放器位置</li>
+<li><strong>调整大小</strong>：拖动播放器右下角调整窗口大小</li>
+<li><strong>关闭</strong>：点击右上角关闭按钮</li>
+</ul>
+<h3>支持的格式</h3>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WebM</td>
+<td>完全支持（推荐）</td>
+</tr>
+<tr>
+<td>MP4</td>
+<td>仅 H.264 (AVC) 编码</td>
+</tr>
+<tr>
+<td>MOV</td>
+<td>仅 H.264 (AVC) 编码</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>非标准编码的 MP4/MOV 文件无法在黑板内播放，建议使用系统播放器打开。</p>
+</blockquote>
+</div>
+</div>
+
+<hr>
+<div class="two-col">
+<div>
+
+<h2>录制注意事项</h2>
+<h3>录制前准备</h3>
+<ul>
+<li>确保画布已打开（新建黑板或打开文件）</li>
+<li>如需录制音频，确保麦克风权限已授权</li>
+<li>系统音频录制需要浏览器/系统支持（Tauri 桌面版支持更完善）</li>
+</ul>
+<h3>录制过程中</h3>
+<ul>
+<li>可以在黑板中正常操作（绘图、翻页、切换工具等），所有操作都会被记录</li>
+<li>翻页操作也会被录制（切换页面的过程会记录在视频中）</li>
+<li>录制的视频不含录制面板本身和顶部指示器</li>
+</ul>
+<h3>性能建议</h3>
+<ul>
+<li>帧率建议 15 fps（教学录制足够清晰流畅）</li>
+<li>高帧率（24/30 fps）适合录制动画或快速操作</li>
+<li>录制时关闭不必要的后台程序以保证流畅度</li>
+</ul>
+</div>
+<div>
+
+<h2>录制指示器</h2>
+<p>录制开始后，画布右上角会出现一个半透明的录制指示器：</p>
+<ul>
+<li><strong>红点闪烁</strong> + &quot;录制中&quot; + 计时器（如 03:25）</li>
+<li>暂停时红点停止闪烁，显示&quot;已暂停&quot;</li>
+<li>点击指示器可快速打开录制面板</li>
+</ul>
+<p>指示器本身不会被录制到视频中。</p>
+<h2>视频文件管理</h2>
+<p>录制产生的 .webm 文件：</p>
+<ul>
+<li>可随后在黑板中打开播放（通过打开本地文件）</li>
+<li>可作为教学资源上传到百度网盘</li>
+<li>可导入到其他页面作为注释（通过打开本地文件方式）</li>
+<li>可在文件管理器中直接拖入黑板播放</li>
+</ul>
+<h2>视频转换</h2>
+<p>如需将录制视频转换为其他格式，可使用第三方工具（如 FFmpeg）。黑板内置了简单的视频格式检测，播放时自动选择最佳解码方式。</p>
+</div>
+</div>
+
+</section>
+
+
+</body>
+</html>
