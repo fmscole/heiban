@@ -32,14 +32,14 @@
 
 | 版本 | 文件 | 说明 |
 |------|------|------|
-| 安装版 | [`老九黑板 1.76.8(安装包).exe`](https://github.com/fmscole/heiban/releases/download/v1.76.8/%E8%80%81%E4%B9%9D%E9%BB%91%E6%9D%BF1.76.8%28%E5%AE%89%E8%A3%85%E5%8C%85%29.exe) | 标准安装程序，推荐 |
-| 便携版 | [`老九黑板 1.76.8.exe`](https://github.com/fmscole/heiban/releases/download/v1.76.8/%E8%80%81%E4%B9%9D%E9%BB%91%E6%9D%BF1.76.8.exe) | 免安装，直接运行 |
+| 安装版 | [`1.76.8-installer.exe`](https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8-installer.exe) | 标准安装程序，推荐 |
+| 便携版 | [`1.76.8.exe`](https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8.exe) | 免安装，直接运行 |
 
 ### Android
 
 | 文件 | 说明 |
 |------|------|
-| [`老九黑板 1.76.8(android).apk`](https://github.com/fmscole/heiban/releases/download/v1.76.8/%E8%80%81%E4%B9%9D%E9%BB%91%E6%9D%BF1.76.8%28android%29.apk) | Android APK 安装包 |
+| [`1.76.8.android.apk`](https://github.com/fmscole/heiban/releases/download/v1.76.8/1.76.8.android.apk) | Android APK 安装包 |
 
 > 所有发布版本可在 [GitHub Releases 页面](https://github.com/fmscole/heiban/releases) 查看历史版本。
 
